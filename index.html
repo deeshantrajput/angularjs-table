@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="app-test">
+   <head>
+     <meta charset=utf-8> 
+     <title>New App</title> 
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <link rel=stylesheet href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel=stylesheet href=styles/style.css>
+     <script src="scripts/controller.js"></script>
+   </head>
+  <body ng-controller="entryCtrl">
+  <nav class="book" >
+	<p>Enter your data</p>
+  </nav> 
+        <form ng-submit="addName()" class="form-horizontal" role="form">
+        <div class="form-group">
+             <label class="col-sm-2">Name:</label>
+			 <input type="text" class="col-sm-2" ng-model="getName" required >
+             <label class="col-sm-2">Description:</label>
+			 <input type="text" ng-model="getDescription" class="col-sm-2" required>
+             <label class="col-sm-2">Currency:</label>
+			 <input type="text" ng-model="getCurrency" class="col-sm-2" required>
+			 </div>
+			 <div class="form-group">
+			 <label class="col-sm-2">Adult Rate:</label>
+			 <input type="number" ng-model="getAdultRate" class="col-sm-2" required>
+             <label class="col-sm-2">Child Rate:</label> 
+			 <input type="number" ng-model="getChildRate" class="col-sm-2" required>
+             <label class="col-sm-2">Pickup time: </label>
+			 <input type="time" ng-model="getPickupTime" class="col-sm-2" required>
+			 </div>
+			 <div class="form-group">
+			 <label class="col-sm-2">Tour Start Time:</label>
+			 <input type="time" ng-model="getTourStartTime" class="col-sm-2" required>
+             <label class="col-sm-2">Days of Week: </label>
+			 <input type="text" ng-model="getDaysofWeek" class="col-sm-2" required>
+             <label class="col-sm-2">Duration: </label>
+			 <input type="number" ng-model="getDuration" class="col-sm-2" required>
+			 </div>
+			 <div class="form-group">
+			 <label class="col-sm-2">EffectiveStartDate:</label>
+			 <input type="date" ng-model="getEffectiveStartDate" class="col-sm-2" required>
+             <label class="col-sm-2">EffectiveEndDate: </label>
+			 <input type="date" ng-model="getEffectiveEndDate" class="col-sm-2" required>
+             <label class="col-sm-2">Location: </label>
+			 <input type="text" ng-model="getLocation" class="col-sm-2" required>
+			 </div>
+             <div class="form-group"><input type="submit" class="btn btn-primary btn-block" value="Submit">
+			 </div>
+    </form>	
+	<table class="table table-bordered">
+		<thead>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Currency</th>
+			<th>Adult Rate</th>
+			<th>Child Rate</th>
+			<th>Pickup time</th>
+			<th>Tour Start Time</th>
+			<th>Days of Week</th>
+			<th>Duration</th>
+			<th>EffectiveStartDate</th>
+			<th>EffectiveEndDate</th>
+			<th>Location</th>
+		</thead>
+		  <tr ng-repeat="userdetail in userdetails">
+			<td>{{userdetail.name}}</td>
+			<td>{{userdetail.description}}</td>
+			<td>{{userdetail.currency}}</td>
+			<td>{{userdetail.adultrate}}</td>
+			<td>{{userdetail.childrate}}</td>
+			<td>{{userdetail.pickuptime | date: "HH:mm"}}</td>
+			<td>{{userdetail.tourstarttime | date: "HH:mm"}}</td>
+			<td>{{userdetail.daysofweek}}</td>
+			<td>{{userdetail.duration}}</td>
+			<td>{{userdetail.effectivestartdate | date:'shortDate'}}</td>
+			<td>{{userdetail.effectiveenddate | date:'shortDate'}}</td>
+			<td>{{userdetail.location}}</td>
+		  </tr>
+	</table>
+  </body>
+</html>
